@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class ConditionUI : MonoBehaviour
 {
-    public Condition hp;
-    public Condition mp;
+    [SerializeField] private Condition hp;
+    [SerializeField] private Condition mp;
     public Image hpBar;
     public Image mpBar;
     

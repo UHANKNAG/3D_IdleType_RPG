@@ -10,8 +10,8 @@ public class PlayerCondition : MonoBehaviour
 
     private void Awake()
     {
-        hp.maxValue = 100f; // 추후 player stat 값으로 변경할 것
-        mp.maxValue = 100f; // ''
+        hp.maxValue = PlayerMediator.Instance.playerStats.stats["HP"].value;
+        mp.maxValue = PlayerMediator.Instance.playerStats.stats["MP"].value;
 
         hp.curValue = hp.maxValue;
         mp.curValue = mp.maxValue;

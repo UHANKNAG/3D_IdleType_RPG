@@ -613,6 +613,7 @@ GameObject:
   - component: {fileID: 405151783}
   - component: {fileID: 405151782}
   - component: {fileID: 405151781}
+  - component: {fileID: 405151784}
   m_Layer: 5
   m_Name: GameUI
   m_TagString: Untagged
@@ -632,6 +633,8 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1024884619}
+  - {fileID: 788357075}
   - {fileID: 819225200}
   m_Father: {fileID: 1666505423}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -703,6 +706,26 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &405151784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 405151779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73a14f35dae954969a159abd4843d46b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  exp: 0
+  expBar: {fileID: 478610357}
+  level: 0
+  lvText: {fileID: 1980996710}
+  gold: 0
+  goldText: {fileID: 954087586}
+  stageNum: 0
+  stageText: {fileID: 1522949347}
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -907,7 +930,7 @@ GameObject:
   - component: {fileID: 478610358}
   - component: {fileID: 478610357}
   m_Layer: 5
-  m_Name: ExUI
+  m_Name: ExBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1021,7 +1044,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.43867922, b: 0.43867922, a: 1}
+  m_Color: {r: 1, g: 0.0141509175, b: 0.0141509175, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1283,6 +1306,7 @@ GameObject:
   - component: {fileID: 604326276}
   - component: {fileID: 604326275}
   - component: {fileID: 604326274}
+  - component: {fileID: 604326277}
   m_Layer: 5
   m_Name: ConditionUI
   m_TagString: Untagged
@@ -1374,6 +1398,26 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &604326277
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 604326272}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a59e2ad78bcc40ea8a6a879db6a30e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp:
+    maxValue: 0
+    curValue: 0
+  mp:
+    maxValue: 0
+    curValue: 0
+  hpBar: {fileID: 518519667}
+  mpBar: {fileID: 1151260423}
 --- !u!1001 &637379243
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1776,11 +1820,11 @@ RectTransform:
   - {fileID: 546938469}
   - {fileID: 954087585}
   - {fileID: 1352095496}
-  m_Father: {fileID: 819225200}
+  m_Father: {fileID: 405151780}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 150, y: -299.99997}
+  m_AnchoredPosition: {x: -760, y: 190.00003}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!1 &819225199
@@ -1814,8 +1858,6 @@ RectTransform:
   - {fileID: 478610356}
   - {fileID: 93852163}
   - {fileID: 955215162}
-  - {fileID: 788357075}
-  - {fileID: 1024884619}
   m_Father: {fileID: 405151780}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
@@ -2238,7 +2280,7 @@ GameObject:
   m_Component:
   - component: {fileID: 955215162}
   m_Layer: 5
-  m_Name: LevelUI
+  m_Name: Level
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2364,11 +2406,11 @@ RectTransform:
   - {fileID: 1340794546}
   - {fileID: 1522949346}
   - {fileID: 1417093997}
-  m_Father: {fileID: 819225200}
+  m_Father: {fileID: 405151780}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 150, y: -380}
+  m_AnchoredPosition: {x: -760, y: 110.00003}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!1 &1043805687
@@ -2707,7 +2749,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.4669811, g: 0.5081685, b: 1, a: 1}
+  m_Color: {r: 0, g: 0.08088255, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3192,7 +3234,7 @@ GameObject:
   - component: {fileID: 1522949348}
   - component: {fileID: 1522949347}
   m_Layer: 5
-  m_Name: GoldText
+  m_Name: StageText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3435,6 +3477,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1575692584}
   - component: {fileID: 1575692585}
+  - component: {fileID: 1575692587}
+  - component: {fileID: 1575692586}
+  - component: {fileID: 1575692588}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -3485,6 +3530,54 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1575692586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1575692583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94f9d03175c6d495799141b970e48229, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp:
+    maxValue: 0
+    curValue: 0
+  mp:
+    maxValue: 0
+    curValue: 0
+--- !u!114 &1575692587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1575692583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23a4f9ae8902e4c319a8c983698e5d83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerCondition: {fileID: 0}
+  playerStats: {fileID: 0}
+--- !u!114 &1575692588
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1575692583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c104ad07a02594c9eb3cfdbcd46252fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  level: 0
+  exp: 0
+  expToNextLevel: 0
+  gold: 0
 --- !u!1 &1576601600
 GameObject:
   m_ObjectHideFlags: 3
@@ -3739,6 +3832,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1666505423}
+  - component: {fileID: 1666505424}
   m_Layer: 0
   m_Name: UI
   m_TagString: Untagged
@@ -3763,6 +3857,20 @@ Transform:
   - {fileID: 604326273}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1666505424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1666505422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff3a208dc37c1424f8536f006a89d5d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameUI: {fileID: 0}
+  conditionUI: {fileID: 0}
 --- !u!1001 &1766851800
 PrefabInstance:
   m_ObjectHideFlags: 0
