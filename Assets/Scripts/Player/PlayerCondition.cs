@@ -19,6 +19,9 @@ public class PlayerCondition : MonoBehaviour
 
     private void Update()
     {
+        hp.maxValue = PlayerMediator.Instance.playerStats.stats["HP"].value;
+        mp.maxValue = PlayerMediator.Instance.playerStats.stats["MP"].value;
+        
         // Dead
         if (hp.curValue <= 0f)
         {

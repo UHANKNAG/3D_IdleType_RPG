@@ -25,6 +25,12 @@ public class Collectable : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    public void DealDamage()
+    {
+        // poisonDamage만큼 player에게 피해 주기
+        PlayerMediator.Instance.playerCondition.hp.curValue -= collectData.poisonDamage;
+    }
     
     private void RewardToPlayer()
     {

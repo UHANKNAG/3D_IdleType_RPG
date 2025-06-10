@@ -16,6 +16,6 @@ MonoBehaviour:
     maxValue: 50
     curValue: 0
   poisonDamage: 15
-  rewardGold: 80
+  rewardGold: 1000
   rewardExp: 80
   prefab: {fileID: 7953618511616164106, guid: 3fa8125accaf74ac89b73e8845571399, type: 3}

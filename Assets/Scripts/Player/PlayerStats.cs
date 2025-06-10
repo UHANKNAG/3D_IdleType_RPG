@@ -19,7 +19,7 @@ public class PlayerStats : MonoBehaviour
     {
         level = 1;
         exp = 0f;
-        expToNextLevel = 10f;
+        expToNextLevel = 50f;
         gold = 0;
         
         stats = new Dictionary<string, Stat>
@@ -36,7 +36,7 @@ public class PlayerStats : MonoBehaviour
         exp += amount;
         if (exp >= expToNextLevel)
         {
-            exp = 0f;
+            exp -= expToNextLevel;
             LevelUP();
         }
     }
@@ -45,7 +45,15 @@ public class PlayerStats : MonoBehaviour
     {
         level++;
         expToNextLevel *= 2f;
-        // levelup 시 체력 회복 stats["HP"].
+        stats["HP"].value += 50f;
+        stats["MP"].value += 10f;
+        Invoke("updateStat", 0.1f);
+    }
+
+    void updateStat()
+    {
+        PlayerMediator.Instance.playerCondition.hp.curValue 
+            = PlayerMediator.Instance.playerCondition.hp.maxValue;
     }
 
 }

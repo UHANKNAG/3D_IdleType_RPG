@@ -15,7 +15,7 @@ MonoBehaviour:
   hp:
     maxValue: 100
     curValue: 0
-  poisonDamage: 5
-  rewardGold: 50
-  rewardExp: 50
+  poisonDamage: 1
+  rewardGold: 500
+  rewardExp: 40
   prefab: {fileID: 7651399098047994913, guid: 8a94365182d4b4d388c0772c453d5711, type: 3}

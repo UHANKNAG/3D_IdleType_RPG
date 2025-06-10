@@ -52,6 +52,7 @@ public class AttackState : State
             if (collectObject != null)
             {
                 collectObject.TakeDamage(PlayerMediator.Instance.playerStats.stats["Attack"].value);
+                collectObject.DealDamage();
             }
         }
     }
