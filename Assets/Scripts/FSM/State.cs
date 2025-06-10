@@ -5,15 +5,13 @@ using UnityEngine;
 public abstract class State
 {
     protected PlayerStateMachine stateMachine;
-    protected CharacterController controller;
 
-    public State(PlayerStateMachine stateMachine, CharacterController controller)
+    public State(PlayerStateMachine stateMachine)
     {
         this.stateMachine = stateMachine;
-        this.controller = controller;
     }
 
-    public abstract void Enter();
-    public abstract void Update();
-    public abstract void Exit();
+    public virtual void Enter() { }
+    public virtual void Update() { }
+    public virtual void Exit() { }
 }

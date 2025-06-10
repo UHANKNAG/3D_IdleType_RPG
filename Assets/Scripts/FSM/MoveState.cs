@@ -4,21 +4,28 @@ using UnityEngine;
 
 public class MoveState : State
 {
-    public MoveState(PlayerStateMachine stateMachine, CharacterController controller) : base(stateMachine, controller)
+    public MoveState(PlayerStateMachine stateMachine) : base(stateMachine)
     {
     }
     public override void Enter()
     {
-        throw new System.NotImplementedException();
+        stateMachine.Animator.SetBool("Move", true);
     }
 
     public override void Update()
     {
-        throw new System.NotImplementedException();
+        if (stateMachine.IsObstacleAhead())
+        {
+            stateMachine.ChangeState(new AttackState(stateMachine));
+            return;
+        }
+
+        Vector3 move = stateMachine.transform.forward * stateMachine.moveSpeed * Time.deltaTime;
+        stateMachine.Controller.Move(move);
     }
 
     public override void Exit()
     {
-        throw new System.NotImplementedException();
+        stateMachine.Animator.SetBool("Move", false);
     }
 }

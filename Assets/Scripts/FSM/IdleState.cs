@@ -4,22 +4,22 @@ using UnityEngine;
 
 public class IdleState : State
 {
-    public IdleState(PlayerStateMachine stateMachine, CharacterController controller) : base(stateMachine, controller)
+    public IdleState(PlayerStateMachine stateMachine) : base(stateMachine)
     {
     }
     public override void Enter()
     {
-        throw new System.NotImplementedException();
+        stateMachine.Animator.SetBool("Idle", true);
     }
 
     public override void Update()
     {
-        throw new System.NotImplementedException();
+        
     }
 
     public override void Exit()
     {
-        throw new System.NotImplementedException();
+        stateMachine.Animator.SetBool("Idle", false);
     }
 
     
