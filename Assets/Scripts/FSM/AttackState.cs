@@ -1,31 +1,41 @@
+using System.Collections;
 using UnityEngine;
 
 public class AttackState : State
 {
-    private float attackCooldown = 1f;
-    private float lastAttackTime;
+    private float attackCooldown = 2f;
+    private Coroutine attackCoroutine;
 
     public AttackState(PlayerStateMachine stateMachine) : base(stateMachine) {}
 
     public override void Enter()
     {
-        stateMachine.Animator.SetTrigger("Attack");
-        lastAttackTime = Time.time;
+        attackCoroutine = stateMachine.StartCoroutine(AttackLoop());
     }
 
     public override void Update()
     {
-        if (stateMachine.IsObstacleAhead())
-        {
-            if (Time.time - lastAttackTime >= attackCooldown)
-            {
-                PerformAttack();
-                lastAttackTime = Time.time;
-            }
-        }
-        else
+        // 매 프레임마다 적 존재 여부 확인
+        if (!stateMachine.IsObstacleAhead())
         {
             stateMachine.ChangeState(new MoveState(stateMachine));
+        }
+    }
+
+    public override void Exit()
+    {
+        if (attackCoroutine != null)
+        {
+            stateMachine.StopCoroutine(attackCoroutine);
+        }
+    }
+
+    private IEnumerator AttackLoop()
+    {
+        while (true)
+        {
+            PerformAttack();
+            yield return new WaitForSeconds(attackCooldown);
         }
     }
 
@@ -34,7 +44,6 @@ public class AttackState : State
         Debug.Log("적을 공격합니다.");
         stateMachine.Animator.SetTrigger("Attack");
 
-        // TODO: 적에게 데미지를 주는 로직이 있다면 여기에 추가
-        // 예: stateMachine.Target?.GetComponent<Enemy>()?.TakeDamage(10);
+        // 데미지 처리
     }
 }
