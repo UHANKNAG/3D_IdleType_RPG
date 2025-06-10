@@ -11,4 +11,5 @@ public class CollectObject : ScriptableObject
     public float rewardExp;
 
     public GameObject prefab;
+    public ItemObject rewardItem;
 }

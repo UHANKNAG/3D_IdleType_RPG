@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class AttackState : State
 {
-    private float attackCooldown = 2f;
+    public float attackCooldown = 2f;
     private Coroutine attackCoroutine;
     private LayerMask targetLayer;
 

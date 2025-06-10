@@ -9,13 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18a7853f484a8418a811a435a2fec4be, type: 3}
-  m_Name: Mushroom 3
+  m_Script: {fileID: 11500000, guid: 56e7f342191674ee7b6525cfe0ca0f2a, type: 3}
+  m_Name: AttackBuffer
   m_EditorClassIdentifier: 
-  hp:
-    maxValue: 50
-    curValue: 0
-  poisonDamage: 15
-  rewardGold: 1000
-  rewardExp: 80
-  prefab: {fileID: 7953618511616164106, guid: 3fa8125accaf74ac89b73e8845571399, type: 3}
+  itemName: AttackBuffer
+  buffName: Attack
+  buffAmount: 10
+  duration: 10
+  itemIcon: {fileID: 21300000, guid: 4f2f320a217307a48a107491b1d17ebb, type: 3}

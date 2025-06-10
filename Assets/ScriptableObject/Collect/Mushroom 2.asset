@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18a7853f484a8418a811a435a2fec4be, type: 3}
+  m_Name: Mushroom 2
+  m_EditorClassIdentifier: 
+  hp:
+    maxValue: 100
+    curValue: 0
+  poisonDamage: 10
+  rewardGold: 1000
+  rewardExp: 100
+  prefab: {fileID: 4722709480184222257, guid: f7d7b5ca4348b44de98f1837ba36519f, type: 3}
+  Item: {fileID: 11400000, guid: aa8aaa78c2f31489da2833be1e19022d, type: 2}
