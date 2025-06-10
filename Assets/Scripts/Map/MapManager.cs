@@ -9,6 +9,9 @@ public class MapManager : Singleton<MapManager>
     public Block curBlock;
     public Block nextBlock;
     public Block tempBlock;
+
+    public int curWave = 1;
+    public int curStage = 1;
     
     protected override void Awake()
     {
@@ -19,6 +22,13 @@ public class MapManager : Singleton<MapManager>
     {
         if (curBlock.isPass && nextBlock.isNext)
         {
+            curWave++;
+            if (curWave == 5)
+            {
+                curStage++;
+                curWave = 0;
+            }
+            
             curBlock.transform.position += new Vector3(0f, 0f, 100f);
             
             tempBlock = curBlock;

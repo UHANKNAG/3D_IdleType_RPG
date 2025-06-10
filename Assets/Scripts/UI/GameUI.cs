@@ -33,6 +33,9 @@ public class GameUI : MonoBehaviour
 
         level = PlayerMediator.Instance.playerStats.level;
         lvText.text = $"{level}";
+
+        stageNum = MapManager.Instance.curStage;
+        stageText.text = $"Stage {stageNum}";
     }
 
     float GetExpPercentage()
@@ -40,5 +43,10 @@ public class GameUI : MonoBehaviour
         float curExp = exp;
         float maxExp = PlayerMediator.Instance.playerStats.expToNextLevel;
         return curExp / maxExp;
+    }
+
+    void UpdateStage()
+    {
+        // stage 바뀔 때마다 생길 이벤트
     }
 }
