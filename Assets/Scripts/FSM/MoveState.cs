@@ -14,7 +14,7 @@ public class MoveState : State
 
     public override void Update()
     {
-        if (stateMachine.IsObstacleAhead())
+        if (stateMachine.IsTargetAhead())
         {
             stateMachine.ChangeState(new AttackState(stateMachine));
             return;

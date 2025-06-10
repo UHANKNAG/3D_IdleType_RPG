@@ -11,6 +11,8 @@ public class PlayerStateMachine : MonoBehaviour
     public float detectDistance = 1f;
     public LayerMask targetLayer;
 
+    private RaycastHit targetHit;
+
     private void Awake()
     {
         Animator = GetComponentInChildren<Animator>();
@@ -34,10 +36,21 @@ public class PlayerStateMachine : MonoBehaviour
         CurrentState.Enter();
     }
 
-    public bool IsObstacleAhead()
+    public bool IsTargetAhead()
     {
-        Vector3 origin = transform.position + Vector3.up * 0.5f; // 시야 약간 위에서
+        Vector3 origin = transform.position + Vector3.up * 0.5f;
         Vector3 direction = transform.forward;
-        return Physics.Raycast(origin, direction, detectDistance, targetLayer);
+        if (Physics.Raycast(origin, direction, out targetHit, detectDistance, targetLayer))
+        {
+            return true;
+        }
+
+        // 감지 실패
+        return false;
+    }
+
+    public RaycastHit GetTarget()
+    {
+        return targetHit;
     }
 }

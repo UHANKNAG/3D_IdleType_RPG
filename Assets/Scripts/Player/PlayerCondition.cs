@@ -8,7 +8,7 @@ public class PlayerCondition : MonoBehaviour
     public Condition hp;
     public Condition mp;
 
-    private void Awake()
+    private void Start()
     {
         hp.maxValue = PlayerMediator.Instance.playerStats.stats["HP"].value;
         mp.maxValue = PlayerMediator.Instance.playerStats.stats["MP"].value;

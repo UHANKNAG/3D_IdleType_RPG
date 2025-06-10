@@ -5,6 +5,7 @@ public class AttackState : State
 {
     private float attackCooldown = 2f;
     private Coroutine attackCoroutine;
+    private LayerMask targetLayer;
 
     public AttackState(PlayerStateMachine stateMachine) : base(stateMachine) {}
 
@@ -16,7 +17,7 @@ public class AttackState : State
     public override void Update()
     {
         // 매 프레임마다 적 존재 여부 확인
-        if (!stateMachine.IsObstacleAhead())
+        if (!stateMachine.IsTargetAhead())
         {
             stateMachine.ChangeState(new MoveState(stateMachine));
         }
@@ -41,9 +42,18 @@ public class AttackState : State
 
     private void PerformAttack()
     {
-        Debug.Log("적을 공격합니다.");
         stateMachine.Animator.SetTrigger("Attack");
 
-        // 데미지 처리
+        RaycastHit hit = stateMachine.GetTarget();
+
+        if (hit.collider != null && hit.collider.CompareTag("Collect"))
+        {
+            Collectable collectObject = hit.collider.GetComponent<Collectable>();
+            if (collectObject != null)
+            {
+                collectObject.TakeDamage(PlayerMediator.Instance.playerStats.stats["Attack"].value);
+                return;
+            }
+        }
     }
 }
