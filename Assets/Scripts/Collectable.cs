@@ -29,6 +29,6 @@ public class Collectable : MonoBehaviour
     private void RewardToPlayer()
     {
         PlayerMediator.Instance.playerStats.gold += collectData.rewardGold;
-        PlayerMediator.Instance.playerStats.exp += collectData.rewardExp;
+        PlayerMediator.Instance.playerStats.AddExp(collectData.rewardExp);
     }
 }
