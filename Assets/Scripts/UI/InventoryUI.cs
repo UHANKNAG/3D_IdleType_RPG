@@ -1,14 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class InventoryUI : MonoBehaviour
 {
-    public Button inventoryButton;
     public GameObject inventoryScreen;
     public Button[] slots = new Button[9];
+    public TextMeshProUGUI[] texts = new TextMeshProUGUI[9];
     public List<ItemObject> items;
+    public PlayerInventory playerInventory;
     
     // Start is called before the first frame update
     void Start()
@@ -21,6 +23,7 @@ public class InventoryUI : MonoBehaviour
             if (buttonObject != null)
             {
                 slots[i] = buttonObject.GetComponent<Button>();
+                texts[i] = buttonObject.GetComponentInChildren<TextMeshProUGUI>();
             }
         }
     }
@@ -33,7 +36,14 @@ public class InventoryUI : MonoBehaviour
 
     public void DisplayInventoryItem()
     {
-        PlayerMediator.Instance.playerInventory.items
+        if (playerInventory.items != null)
+        {
+            for (int i = 0; i < playerInventory.items.Count; i++)
+            {
+                slots[i].image.sprite = playerInventory.items[i].itemIcon;
+                texts[i].text = playerInventory.items[i].quantity.ToString();
+            }
+        }
     }
 
     public void OpenInventory()
@@ -45,6 +55,7 @@ public class InventoryUI : MonoBehaviour
         }
         else
         {
+            DisplayInventoryItem();
             inventoryScreen.SetActive(true);
             Time.timeScale = 0f;
         }
