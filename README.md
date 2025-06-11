@@ -30,7 +30,7 @@
 
 ### 3. 🧪 아이템 시스템
 
-* 적 또는 오브젝트 처치 시 **아이템 드래프**
+* 적 또는 오브젝트 처치 시 **아이템 드랍**
 * 아이템 사용 시 **스템 강화**
 
   * 체력 회복
@@ -59,7 +59,7 @@
 ### 6. 📦 ScriptableObject 기반 데이터 관리
 
 * **CollectObject**: 플레이어가 처치해야 할 오브젝트 정의
-* **ItemObject**: 드래프될 아이템 정의
+* **ItemObject**: 드랍될 아이템 정의
 * ScriptableObject를 통해 각 객체의 속성 및 보상 데이터를 분리 관리
 
 ![ScriptableObject](https://github.com/UHANKNAG/3D_IdleType_RPG/blob/main/READMEfiles/ScriptableObject.png)
@@ -72,6 +72,13 @@
 * 스테이지 변화는 UI에 실시간 반영
 
 ![Stage](https://github.com/UHANKNAG/3D_IdleType_RPG/blob/main/READMEfiles/Stage.png)
+
+
+### 8. 🎲 Collect 랜덤 생성 시스템
+
+* ScriptableObject를 포함한 CollectPrefab을 **CollectManager**를 통해 맵 위에 **랜덤 배치**
+
+![CollectManager](https://github.com/UHANKNAG/3D_IdleType_RPG/blob/main/READMEfiles/CollectManager.png)
   
 
 ## 🛠️ 기술 스택
@@ -80,3 +87,5 @@
 * C#
 * FSM 구조 기반 자동화 시스템
 * ScriptableObject를 활용한 데이터 분리
+
+
