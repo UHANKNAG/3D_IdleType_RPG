@@ -36,8 +36,7 @@ public class Collectable : MonoBehaviour
     {
         PlayerMediator.Instance.playerStats.gold += collectData.rewardGold;
         PlayerMediator.Instance.playerStats.AddExp(collectData.rewardExp);
-        // 인벤토리에 아이템 넣기
         PlayerMediator.Instance.playerInventory.AddItem(collectData.rewardItem);
-        Debug.Log($"{collectData.rewardItem} 아이템 획득");
+        // Debug.Log($"{collectData.rewardItem} 아이템 획득");
     }
 }

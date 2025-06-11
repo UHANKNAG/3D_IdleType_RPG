@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,7 +7,6 @@ public class InventoryUI : MonoBehaviour
     public GameObject inventoryScreen;
     public Button[] slots = new Button[9];
     public TextMeshProUGUI[] texts = new TextMeshProUGUI[9];
-    public List<ItemObject> items;
     public PlayerInventory playerInventory;
     
     // Start is called before the first frame update
@@ -25,12 +22,9 @@ public class InventoryUI : MonoBehaviour
             }
         }
         
-        // slot과 text 지정하고 Active false 할 것.
-        // 먼저 false 했더니 object 못 찾음
         inventoryScreen.SetActive(false);
     }
 
-    // Update is called once per frame
     void Update()
     {
         
@@ -38,15 +32,15 @@ public class InventoryUI : MonoBehaviour
 
     public void DisplayInventoryItem()
     {
-        if (playerInventory == null)
+        for (int i = 0; i < slots.Length; i++)
         {
-            Debug.LogError("playerInventory is null");
-            return;
+            slots[i].image.sprite = null;
+            texts[i].text = "0";
         }
         
         if (playerInventory.items != null)
         {
-            for (int i = 0; i < playerInventory.items.Count; i++)
+            for (int i = 0; i < playerInventory.items.Count && i < slots.Length; i++)
             {
                 slots[i].image.sprite = playerInventory.items[i].itemIcon;
                 texts[i].text = playerInventory.items[i].quantity.ToString();
@@ -70,6 +64,4 @@ public class InventoryUI : MonoBehaviour
             Time.timeScale = 0f;
         }
     }
-
-    
 }

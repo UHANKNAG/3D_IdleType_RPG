@@ -1,7 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -26,6 +22,7 @@ public class InventorySlot : MonoBehaviour
                 {
                     inventoryUI.playerInventory.UseItem(i);
                     Debug.Log($"Used item: {i.itemName}");
+                    inventoryUI.DisplayInventoryItem();
                     return;
                 }
             }

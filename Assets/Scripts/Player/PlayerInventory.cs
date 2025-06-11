@@ -1,7 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
-using UnityEditor;
 using UnityEngine;
 
 public class PlayerInventory : MonoBehaviour
@@ -60,17 +58,17 @@ public class PlayerInventory : MonoBehaviour
         }
     }
     
-    public void Heal(ItemObject item)
+    void Heal(ItemObject item)
     {
         PlayerMediator.Instance.playerCondition.hp.curValue += item.buffAmount;
     }
 
-    public void Attack(ItemObject item)
+    void Attack(ItemObject item)
     {
         StartCoroutine(AttackUp(item));
     }
 
-    public void Speed(ItemObject item)
+    void Speed(ItemObject item)
     {
         StartCoroutine(SpeedUp(item));
     }
