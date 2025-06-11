@@ -15,8 +15,6 @@ public class InventoryUI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        inventoryScreen.SetActive(false);
-
         for (int i = 0; i < slots.Length; i++)
         {
             GameObject buttonObject = GameObject.Find($"Button{i}");
@@ -26,6 +24,10 @@ public class InventoryUI : MonoBehaviour
                 texts[i] = buttonObject.GetComponentInChildren<TextMeshProUGUI>();
             }
         }
+        
+        // slot과 text 지정하고 Active false 할 것.
+        // 먼저 false 했더니 object 못 찾음
+        inventoryScreen.SetActive(false);
     }
 
     // Update is called once per frame
@@ -36,6 +38,12 @@ public class InventoryUI : MonoBehaviour
 
     public void DisplayInventoryItem()
     {
+        if (playerInventory == null)
+        {
+            Debug.LogError("playerInventory is null");
+            return;
+        }
+        
         if (playerInventory.items != null)
         {
             for (int i = 0; i < playerInventory.items.Count; i++)
@@ -48,6 +56,8 @@ public class InventoryUI : MonoBehaviour
 
     public void OpenInventory()
     {
+        playerInventory = PlayerMediator.Instance.playerInventory;
+        
         if (inventoryScreen.activeSelf)
         {
             inventoryScreen.SetActive(false);
@@ -60,4 +70,6 @@ public class InventoryUI : MonoBehaviour
             Time.timeScale = 0f;
         }
     }
+
+    
 }

@@ -18,6 +18,8 @@ public class PlayerInventory : MonoBehaviour
                 return;
             }
         }
+
+        item.quantity = 1;
         items.Add(item);
     }
 
@@ -33,42 +35,42 @@ public class PlayerInventory : MonoBehaviour
 
                 switch (i.buffName)
                 {
-                    case "Heal" :
+                    case "Heal":
                         Heal(i);
                         break;
-                    
-                    case "Attack" :
+
+                    case "Attack":
                         Attack(i);
                         break;
-                    
-                    case "Speed" :
+
+                    case "Speed":
                         Speed(i);
                         break;
-                        
+
                     default:
                         break;
                 }
 
                 if (i.quantity == 0)
                 {
-                    items.Remove((i));
+                    items.Remove(i);
                     return;
                 }
             }
         }
     }
-
-    void Heal(ItemObject item)
+    
+    public void Heal(ItemObject item)
     {
         PlayerMediator.Instance.playerCondition.hp.curValue += item.buffAmount;
     }
 
-    void Attack(ItemObject item)
+    public void Attack(ItemObject item)
     {
         StartCoroutine(AttackUp(item));
     }
 
-    void Speed(ItemObject item)
+    public void Speed(ItemObject item)
     {
         StartCoroutine(SpeedUp(item));
     }
