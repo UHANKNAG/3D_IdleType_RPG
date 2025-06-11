@@ -23,7 +23,7 @@ public class MapManager : Singleton<MapManager>
         if (curBlock.isPass && nextBlock.isNext)
         {
             curWave++;
-            if (curWave == 5)
+            if (curWave == 3)
             {
                 curStage++;
                 curWave = 0;

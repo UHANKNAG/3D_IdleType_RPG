@@ -91,9 +91,11 @@ public class PlayerInventory : MonoBehaviour
         float amount = item.buffAmount;
 
         PlayerMediator.Instance.playerStateMachine.moveSpeed += amount;
+        PlayerMediator.Instance.playerStats.stats["AttackCoolDown"].value /= 2f;
         
         yield return new WaitForSeconds(duration);
         
         PlayerMediator.Instance.playerStateMachine.moveSpeed -= amount;
+        PlayerMediator.Instance.playerStats.stats["AttackCoolDown"].value *= 2f;
     }
 }

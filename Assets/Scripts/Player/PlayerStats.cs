@@ -28,6 +28,7 @@ public class PlayerStats : MonoBehaviour
             { "MP", new Stat("MP", 50f) },
             { "Attack", new Stat("Attack", 10f) },
             { "Defence", new Stat("Defence", 5f) },
+            { "AttackCoolDown", new Stat("AttackCoolDown", 2f)}
         };
     }
 

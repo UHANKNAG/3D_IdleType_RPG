@@ -55,13 +55,11 @@ public class InventoryUI : MonoBehaviour
         if (inventoryScreen.activeSelf)
         {
             inventoryScreen.SetActive(false);
-            Time.timeScale = 1f;
         }
         else
         {
             DisplayInventoryItem();
             inventoryScreen.SetActive(true);
-            Time.timeScale = 0f;
         }
     }
 }

@@ -3,10 +3,11 @@ using UnityEngine;
 
 public class AttackState : State
 {
-    public float attackCooldown = 2f;
+    // public float attackCooldown = 2f;
     private Coroutine attackCoroutine;
     private LayerMask targetLayer;
 
+    
     public AttackState(PlayerStateMachine stateMachine) : base(stateMachine) {}
 
     public override void Enter()
@@ -36,7 +37,7 @@ public class AttackState : State
         while (true)
         {
             PerformAttack();
-            yield return new WaitForSeconds(attackCooldown);
+            yield return new WaitForSeconds(PlayerMediator.Instance.playerStats.stats["AttackCoolDown"].value);
         }
     }
 
