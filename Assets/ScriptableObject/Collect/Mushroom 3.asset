@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Mushroom 3
   m_EditorClassIdentifier: 
   hp:
-    maxValue: 10
+    maxValue: 80
     curValue: 0
-  poisonDamage: 15
+  poisonDamage: 10
   rewardGold: 1000
   rewardExp: 80
   prefab: {fileID: 7953618511616164106, guid: 3fa8125accaf74ac89b73e8845571399, type: 3}

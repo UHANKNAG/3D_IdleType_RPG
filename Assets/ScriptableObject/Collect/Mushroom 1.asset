@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Mushroom 1
   m_EditorClassIdentifier: 
   hp:
-    maxValue: 15
+    maxValue: 120
     curValue: 0
   poisonDamage: 1
   rewardGold: 500

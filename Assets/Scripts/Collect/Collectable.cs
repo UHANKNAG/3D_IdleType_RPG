@@ -22,7 +22,7 @@ public class Collectable : MonoBehaviour
         if (curHP <= 0)
         {
             RewardToPlayer();
-            Destroy(gameObject);
+            CollectManager.Instance.OnCollectDestroy(gameObject);
         }
     }
 
