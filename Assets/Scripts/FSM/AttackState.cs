@@ -3,10 +3,8 @@ using UnityEngine;
 
 public class AttackState : State
 {
-    // public float attackCooldown = 2f;
     private Coroutine attackCoroutine;
     private LayerMask targetLayer;
-
     
     public AttackState(PlayerStateMachine stateMachine) : base(stateMachine) {}
 
@@ -17,7 +15,7 @@ public class AttackState : State
 
     public override void Update()
     {
-        // 매 프레임마다 적 존재 여부 확인
+        // 적 존재 여부 확인
         if (!stateMachine.IsTargetAhead())
         {
             stateMachine.ChangeState(new MoveState(stateMachine));
@@ -45,6 +43,7 @@ public class AttackState : State
     {
         stateMachine.Animator.SetTrigger("Attack");
 
+        // Attack 타겟과의 상호작용
         RaycastHit hit = stateMachine.GetTarget();
 
         if (hit.collider != null && hit.collider.CompareTag("Collect"))

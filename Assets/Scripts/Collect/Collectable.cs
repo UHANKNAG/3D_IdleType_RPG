@@ -15,6 +15,7 @@ public class Collectable : MonoBehaviour
             curHP = collectData.hp.maxValue;
     }
 
+    // Player에게 공격 받고 남은 체력을 확인하여 Destroy 처리
     public void TakeDamage(float damage)
     {
         curHP -= damage;
@@ -26,17 +27,17 @@ public class Collectable : MonoBehaviour
         }
     }
 
+    // Player에게 일정 공격 처리
     public void DealDamage()
     {
-        // poisonDamage만큼 player에게 피해 주기
         PlayerMediator.Instance.playerCondition.hp.curValue -= collectData.poisonDamage;
     }
     
+    // 처치 시 Player에게 보상 지급
     private void RewardToPlayer()
     {
         PlayerMediator.Instance.playerStats.gold += collectData.rewardGold;
         PlayerMediator.Instance.playerStats.AddExp(collectData.rewardExp);
         PlayerMediator.Instance.playerInventory.AddItem(collectData.rewardItem);
-        // Debug.Log($"{collectData.rewardItem} 아이템 획득");
     }
 }

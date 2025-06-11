@@ -12,7 +12,7 @@ public class PlayerStats : MonoBehaviour
 
     public int gold;
     
-    // hp, mp, attack, defence는 stats으로
+    // hp, mp, attack, defence, cooltime은 stats으로
     public Dictionary<string, Stat> stats;
 
     private void Awake()
@@ -32,6 +32,7 @@ public class PlayerStats : MonoBehaviour
         };
     }
 
+    // 경험치 추가 로직
     public void AddExp(float amount)
     {
         exp += amount;
@@ -42,15 +43,17 @@ public class PlayerStats : MonoBehaviour
         }
     }
     
+    // 레벨업 및 스탯 증가 로직
     void LevelUP()
     {
         level++;
         expToNextLevel *= 2f;
         stats["HP"].value += 50f;
         stats["MP"].value += 10f;
+        // 공격 받는 중에 레벨업 하게 되면 순서가 꼬여 제대로 반영되지 않을 수 있어 약간의 딜레이를 줬다
         Invoke("updateStat", 0.1f);
     }
-
+    
     void updateStat()
     {
         PlayerMediator.Instance.playerCondition.hp.curValue 

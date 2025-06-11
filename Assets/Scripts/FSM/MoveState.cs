@@ -20,6 +20,7 @@ public class MoveState : State
             return;
         }
 
+        // 입력이 따로 없어도 자동 전진
         Vector3 move = stateMachine.transform.forward * stateMachine.moveSpeed * Time.deltaTime;
         stateMachine.Controller.Move(move);
     }

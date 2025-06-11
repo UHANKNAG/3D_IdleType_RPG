@@ -10,6 +10,7 @@ public class InventorySlot : MonoBehaviour
         inventoryUI = UIManager.Instance.inventoryUI;
     }
 
+    // 선택 아이템 사용 처리 로직
     public void SelectItem()
     {
         Sprite clickedSprite = GetComponent<Image>().sprite;
@@ -22,6 +23,7 @@ public class InventorySlot : MonoBehaviour
                 {
                     inventoryUI.playerInventory.UseItem(i);
                     Debug.Log($"Used item: {i.itemName}");
+                    // 아이템 사용 후 Inventory 창 다시 Load
                     inventoryUI.DisplayInventoryItem();
                     return;
                 }

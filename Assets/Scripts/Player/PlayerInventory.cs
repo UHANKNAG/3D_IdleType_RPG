@@ -6,8 +6,10 @@ public class PlayerInventory : MonoBehaviour
 {
     public List<ItemObject> items;
 
+    // 아이템 추가 로직
     public void AddItem(ItemObject item)
     {
+        // 이미 있다면 개수 추가
         foreach (var i in items)
         {
             if (i.itemName == item.itemName)
@@ -17,10 +19,12 @@ public class PlayerInventory : MonoBehaviour
             }
         }
 
+        // 없으면 아이템 추가
         item.quantity = 1;
         items.Add(item);
     }
 
+    // 아이템 사용 로직
     public void UseItem(ItemObject item)
     {
         string name = item.itemName;
@@ -49,6 +53,7 @@ public class PlayerInventory : MonoBehaviour
                         break;
                 }
 
+                // 쓰고 개수 남아있지 않으면 remove
                 if (i.quantity == 0)
                 {
                     items.Remove(i);

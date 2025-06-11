@@ -36,6 +36,7 @@ public class PlayerStateMachine : MonoBehaviour
         CurrentState.Enter();
     }
 
+    // 앞에 target이 있는지 확인
     public bool IsTargetAhead()
     {
         Vector3 origin = transform.position + Vector3.up * 0.5f;
@@ -49,6 +50,7 @@ public class PlayerStateMachine : MonoBehaviour
         return false;
     }
 
+    // get target 정보 
     public RaycastHit GetTarget()
     {
         return targetHit;

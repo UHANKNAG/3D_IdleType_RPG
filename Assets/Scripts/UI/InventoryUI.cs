@@ -22,16 +22,13 @@ public class InventoryUI : MonoBehaviour
             }
         }
         
+        // slot과 text 지정 후 Active false
         inventoryScreen.SetActive(false);
-    }
-
-    void Update()
-    {
-        
     }
 
     public void DisplayInventoryItem()
     {
+        // 실행될 때마다 Inventory 다시 Load
         for (int i = 0; i < slots.Length; i++)
         {
             slots[i].image.sprite = null;
