@@ -30,7 +30,7 @@
 
 ### 3. 🧪 아이템 시스템
 
-* 적 또는 오브젝트 처치 시 **아이템 드래프**
+* 적 또는 오브젝트 처치 시 **아이템 드랍**
 * 아이템 사용 시 **스템 강화**
 
   * 체력 회복
@@ -59,7 +59,7 @@
 ### 6. 📦 ScriptableObject 기반 데이터 관리
 
 * **CollectObject**: 플레이어가 처치해야 할 오브젝트 정의
-* **ItemObject**: 드래프될 아이템 정의
+* **ItemObject**: 드랍될 아이템 정의
 * ScriptableObject를 통해 각 객체의 속성 및 보상 데이터를 분리 관리
 
 ![ScriptableObject](https://github.com/UHANKNAG/3D_IdleType_RPG/blob/main/READMEfiles/ScriptableObject.png)
