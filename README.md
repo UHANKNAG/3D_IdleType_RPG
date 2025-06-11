@@ -72,6 +72,13 @@
 * 스테이지 변화는 UI에 실시간 반영
 
 ![Stage](https://github.com/UHANKNAG/3D_IdleType_RPG/blob/main/READMEfiles/Stage.png)
+
+
+### 8. 🎲 Collect 랜덤 생성 시스템
+
+* ScriptableObject를 포함한 CollectPrefab을 **CollectManager**를 통해 맵 위에 **랜덤 배치**
+
+![CollectManager](https://github.com/UHANKNAG/3D_IdleType_RPG/blob/main/READMEfiles/CollectManager.png)
   
 
 ## 🛠️ 기술 스택
@@ -80,3 +87,5 @@
 * C#
 * FSM 구조 기반 자동화 시스템
 * ScriptableObject를 활용한 데이터 분리
+
+
