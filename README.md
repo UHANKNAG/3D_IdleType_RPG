@@ -1,14 +1,13 @@
 # 🔥 Unity Idle RPG Project
 
-이 프로젝트는 Unity를 기반으로 한 3D **Idle RPG 스타일 게임**입니다. 플레이어는 자동으로 이동하며 적이나 오브젝트를 추가 처치하고, 아이템과 골드를 획득해 스탯을 강화하고 스테이지를 진행하게 됩니다.
+이 프로젝트는 Unity를 기반으로 한 3D **Idle RPG 스타일 게임**입니다. 
 
-##
-
+플레이어는 자동으로 이동하며 적이나 오브젝트를 추가 처치하고, 아이템과 골드를 획득해 스탯을 강화하고 스테이지를 진행하게 됩니다.
 
 ![GamePlay](https://github.com/UHANKNAG/3D_IdleType_RPG/blob/main/READMEfiles/3DIdleRPGGamePlay.gif)
 
+##
 
----
 
 ## 📌 구현된 기능
 
